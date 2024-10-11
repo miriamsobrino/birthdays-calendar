@@ -2,7 +2,16 @@ import { Avatar } from './Avatar';
 import { GiftIcon } from '../assets/icons/GiftIcon';
 import { CloseIcon } from '../assets/icons/CloseIcon';
 
-export function BirthdayItem({ name, month, day, year, id, phone, onDelete }) {
+export function BirthdayItem({
+  name,
+  month,
+  day,
+  year,
+  id,
+  phone,
+  onDelete,
+  todaysBirthday,
+}) {
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
   };
@@ -31,9 +40,12 @@ export function BirthdayItem({ name, month, day, year, id, phone, onDelete }) {
       </div>
       <div className='flex gap-4'>
         <span className='text-white font-semibold'>{age} años</span>
-        <button onClick={() => sendWhatsAppMessage(name, phone, age)}>
-          <GiftIcon />
-        </button>
+        {todaysBirthday && (
+          <button onClick={() => sendWhatsAppMessage(name, phone, age)}>
+            <GiftIcon />
+          </button>
+        )}
+
         <button onClick={() => onDelete(id)}>
           <CloseIcon />
         </button>

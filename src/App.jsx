@@ -5,10 +5,10 @@ import { Header } from './components/Header';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Footer } from './components/Footer';
 import { useBirthday } from './hooks/useBirthdays';
+import { Toaster } from 'sonner';
 import './App.css';
 
 function App() {
-  const [selectedMonth] = useState('');
   const {
     birthdays,
     isDialogOpen,
@@ -31,13 +31,15 @@ function App() {
 
   return (
     <Router>
-      <div className='w-full bg-neutral-950 min-h-screen flex flex-col justify-center items-center '>
+      <div className='w-full bg-neutral-950 min-h-screen flex flex-col overflow-x-hidden justify-center items-center '>
+        <Toaster position='top-center' />
         <Header
           setBirthdays={setBirthdays}
           birthdaysByMonth={birthdaysByMonth}
+          setSelectedMonth={setSelectedMonth}
         />
 
-        <div className='w-full md:min-w-96 md:max-w-lg max-w-80 mx-auto'>
+        <div className='w-full md:min-w-96 md:max-w-lg max-w-80  mx-auto'>
           <Routes>
             <Route
               path='/'

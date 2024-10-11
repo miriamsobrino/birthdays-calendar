@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { toast } from 'sonner';
 
 export const useBirthday = () => {
   const [birthdays, setBirthdays] = useState([]);
@@ -24,6 +25,7 @@ export const useBirthday = () => {
       localStorage.setItem('birthdays', JSON.stringify(updatedBirthdays));
       return updatedBirthdays;
     });
+    toast.success('Cumpleaños añadido correctamente!');
     setIsDialogOpen(false);
   };
 

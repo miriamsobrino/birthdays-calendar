@@ -3,7 +3,8 @@ import { MONTHS } from '../constants/Constants';
 import { MonthBirthdayResume } from './MonthBirthdayResume';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-export function Header({ setBirthdays, birthdaysByMonth }) {
+
+export function Header({ setBirthdays, birthdaysByMonth, setSelectedMonth }) {
   const savedBirthdays = JSON.parse(localStorage.getItem('birthdays')) || [];
   const [selectedMonth, setSelectedMonth] = useState('');
 

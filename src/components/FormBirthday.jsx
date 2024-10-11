@@ -49,7 +49,7 @@ export function FormBirthday({ saveBirthday, closeDialog }) {
   };
   return (
     <form
-      className='flex flex-col gap-2 w-80 h-[460px] p-4 pt-10 bg-neutral-900 rounded-lg relative justify-between'
+      className='flex flex-col gap-2 w-80 h-[440px] p-4 pt-10 bg-neutral-900 rounded-lg relative justify-between'
       onSubmit={handleSave}
     >
       <div className='flex flex-col gap-6 mt-2'>

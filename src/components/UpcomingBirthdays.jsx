@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { MONTHS } from '../constants/Constants';
 import { BirthdayItem } from './BirthdayItem';
 
@@ -18,12 +17,6 @@ export function UpcomingBirthdays({ birthdaysByMonth, onDelete }) {
       (birthday) => birthday.day === currentDay.toString()
     ) || [];
 
-  useEffect(() => {
-    console.log('Todays Birthdays:', todaysBirthdays);
-    console.log('Birthdays By Month:', birthdaysByMonth);
-    console.log(currentMonth);
-    console.log(currentDay);
-  }, [todaysBirthdays, birthdaysByMonth]);
   return (
     <div className='flex flex-col gap-2 '>
       <p className='text-neutral-400 font-bold mb-2 uppercase '>Hoy</p>
@@ -37,6 +30,7 @@ export function UpcomingBirthdays({ birthdaysByMonth, onDelete }) {
           phone={birthday.phone}
           id={birthday.id}
           onDelete={onDelete}
+          todaysBirthday={true}
         />
       ))}
 
@@ -58,6 +52,7 @@ export function UpcomingBirthdays({ birthdaysByMonth, onDelete }) {
             phone={birthday.phone}
             id={birthday.id}
             onDelete={onDelete}
+            todaysBirthday={false}
           />
         );
       })}
