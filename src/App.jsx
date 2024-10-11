@@ -9,6 +9,7 @@ import { Toaster } from 'sonner';
 import './App.css';
 
 function App() {
+  const [selectedMonth, setSelectedMonth] = useState('');
   const {
     birthdays,
     isDialogOpen,

@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 export function Header({ setBirthdays, birthdaysByMonth, setSelectedMonth }) {
   const savedBirthdays = JSON.parse(localStorage.getItem('birthdays')) || [];
-  const [selectedMonth, setSelectedMonth] = useState('');
 
   const navigate = useNavigate();
   useEffect(() => {
