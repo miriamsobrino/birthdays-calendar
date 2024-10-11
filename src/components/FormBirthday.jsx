@@ -10,10 +10,33 @@ export function FormBirthday({ saveBirthday, closeDialog }) {
 
   const handleSave = (event) => {
     event.preventDefault();
-    if (name && day && month) {
-      saveBirthday({ name, day, month, year, phone });
-      closeDialog();
-      resetForm();
+
+    const phoneRegex = /^\d{9}$/;
+    const yearRegex = /^\d{4}$/;
+    const dayRegex = /^\d+$/;
+
+    if (name && day && month && year && phone) {
+      if (
+        phoneRegex.test(phone) &&
+        yearRegex.test(year) &&
+        dayRegex.test(day)
+      ) {
+        saveBirthday({ name, day, month, year, phone });
+        closeDialog();
+        resetForm();
+      } else {
+        if (!phoneRegex.test(phone)) {
+          console.error('El número de teléfono debe tener 9 dígitos.');
+        }
+        if (!yearRegex.test(year)) {
+          console.error('El formato del año es incorrecto.');
+        }
+        if (!dayRegex.test(day)) {
+          console.error('El formato del día es incorrecto.');
+        }
+      }
+    } else {
+      console.error('Por favor, completa todos los campos.');
     }
   };
 
@@ -26,10 +49,10 @@ export function FormBirthday({ saveBirthday, closeDialog }) {
   };
   return (
     <form
-      className='flex flex-col gap-2 w-80 h-[380px] p-4 pt-10 bg-neutral-900 rounded-lg relative justify-between'
+      className='flex flex-col gap-2 w-80 h-[460px] p-4 pt-10 bg-neutral-900 rounded-lg relative justify-between'
       onSubmit={handleSave}
     >
-      <div className='flex flex-col gap-4 mt-2'>
+      <div className='flex flex-col gap-6 mt-2'>
         <input
           required
           placeholder='Nombre'
@@ -55,6 +78,7 @@ export function FormBirthday({ saveBirthday, closeDialog }) {
           className='bg-neutral-900 w-full text-white outline-none focus:bg-neutral-800 py-2 px-4  rounded-lg text-sm'
         />
         <input
+          required
           placeholder='Año'
           type='text'
           value={year}
@@ -62,6 +86,7 @@ export function FormBirthday({ saveBirthday, closeDialog }) {
           className='bg-neutral-900 w-full text-white outline-none focus:bg-neutral-800 py-2 px-4  rounded-lg text-sm'
         />
         <input
+          required
           placeholder='Teléfono'
           type='text'
           value={phone}

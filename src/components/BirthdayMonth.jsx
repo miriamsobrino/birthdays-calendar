@@ -1,16 +1,24 @@
 import { BirthdayItem } from './BirthdayItem';
+import { BackIcon } from '../assets/icons/BackIcon';
+import { Link, useParams } from 'react-router-dom';
 
-export function BirthdayMonth({ birthdaysByMonth, month, onDelete }) {
+export function BirthdayMonth({ birthdaysByMonth, onDelete }) {
+  const { month } = useParams();
   const monthLowerCase = month.toLowerCase();
 
   const sortBirthdays =
     birthdaysByMonth[monthLowerCase]?.sort((a, b) => a.day - b.day) || [];
 
   return (
-    <div className='flex flex-col gap-2 w'>
-      <h2 className='text-neutral-400 font-bold text-base uppercase mt-4'>
-        {month}
-      </h2>
+    <div className='flex flex-col gap-2 w text-neutral-400 '>
+      <div className='flex gap-2 items-center '>
+        <Link to='/'>
+          <BackIcon />
+        </Link>
+        <h2 className='text-neutral-400 font-bold text-base uppercase mt-4'>
+          {month}
+        </h2>
+      </div>
       {sortBirthdays.length === 0 && (
         <p className='text-neutral-400'>No hay cumpleaños en este mes</p>
       )}

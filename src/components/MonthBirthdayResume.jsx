@@ -12,24 +12,26 @@ export function MonthBirthdayResume({
 
   return (
     <div
-      className='flex flex-col gap-2 cursor-pointer'
+      className='flex flex-col gap-2 cursor-pointer w-full '
       onClick={() => onItemSelected(monthLowerCase)}
     >
       <h2 className='text-neutral-400 font-bold text-base uppercase'>
         {monthLowerCase.charAt(0).toUpperCase() + monthLowerCase.slice(1, 3)}
       </h2>
 
-      <div className='flex shrink-0 -space-x-2 '>
+      <div className='flex -space-x-4 '>
         {sortBirthdays.slice(0, 2).map((birthday) => (
           <Avatar key={birthday.name} seed={birthday.name} size={32} />
         ))}
-        {birthdaysByMonth[monthLowerCase]?.length > 2 && (
-          <div className='flex items-center justify-center w-8 h-8 bg-neutral-600 rounded-full'>
-            <span className='text-white font-bold'>
-              +{birthdaysByMonth[monthLowerCase]?.length - 2}
-            </span>
-          </div>
-        )}
+        <div className='w-full flex'>
+          {birthdaysByMonth[monthLowerCase]?.length > 2 && (
+            <div className='flex items-center justify-center w-8 h-8 bg-neutral-600 rounded-full'>
+              <span className='text-white font-bold'>
+                +{birthdaysByMonth[monthLowerCase]?.length - 2}
+              </span>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
