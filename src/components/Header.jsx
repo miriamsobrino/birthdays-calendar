@@ -17,7 +17,7 @@ export function Header({ setBirthdays, birthdaysByMonth, setSelectedMonth }) {
     navigate(`/${selectedMonth}`);
   };
   return (
-    <header className=' md:max-w-lg max-w-80 mx-auto  flex flex-col justify-center items-start h-auto'>
+    <header className=' md:max-w-lg max-w-80 mx-auto  flex flex-col justify-center items-start h-auto mb-4'>
       <Link to='/' className='text-white font-bold text-2xl'>
         Cumpleaños
       </Link>

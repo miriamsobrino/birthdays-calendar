@@ -6,7 +6,14 @@
 }
 
 .scroll-container::-webkit-scrollbar {
-  width: 100%; /* Ancho del scrollbar en 0 */
-  height: 30px; /* Altura del scrollbar en 0 */
-  visibility: hidden;
+  width: 6px;
+  height: 6px;
+}
+.scroll-container::-webkit-scrollbar-track {
+  border-radius: 20px;
+  background-color: #3b3b3b;
+}
+.scroll-container::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: aliceblue;
 }

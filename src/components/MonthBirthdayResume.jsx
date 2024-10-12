@@ -19,7 +19,7 @@ export function MonthBirthdayResume({
         {monthLowerCase.charAt(0).toUpperCase() + monthLowerCase.slice(1, 3)}
       </h2>
 
-      <div className='flex -space-x-4 '>
+      <div className='flex -space-x-4 mb-2 '>
         {sortBirthdays.slice(0, 2).map((birthday) => (
           <Avatar key={birthday.name} seed={birthday.name} size={32} />
         ))}
