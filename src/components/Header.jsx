@@ -19,7 +19,7 @@ export function Header({ setBirthdays, birthdaysByMonth, setSelectedMonth }) {
   };
   return (
     <header className=' md:max-w-lg max-w-80 mx-auto  flex flex-col justify-start w-full items-start h-auto mb-4'>
-      <Link to='/' className='text-white font-bold text-2xl'>
+      <Link to='/' className='text-white font-bold text-2xl mb-2'>
         Cumpleaños
       </Link>
       {savedBirthdays.length === 0 && (
