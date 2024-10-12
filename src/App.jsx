@@ -40,7 +40,7 @@ function App() {
 
   return (
     <Router>
-      <div className='w-full bg-neutral-950 min-h-screen overflow-y-hidden flex flex-col overflow-x-hidden justify-center items-center '>
+      <div className='w-full bg-neutral-950 fixed min-h-screen overflow-y-hidden flex flex-col overflow-x-hidden justify-center items-center '>
         <Toaster position='top-center' />
         <Header
           setBirthdays={setBirthdays}
