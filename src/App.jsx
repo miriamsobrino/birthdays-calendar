@@ -40,7 +40,7 @@ function App() {
 
   return (
     <Router>
-      <div className='w-full bg-neutral-950 h-screen overflow-y-hidden flex flex-col overflow-x-hidden justify-center items-center '>
+      <div className='w-full bg-neutral-950 min-h-screen overflow-y-hidden flex flex-col overflow-x-hidden justify-center items-center '>
         <Toaster position='top-center' />
         <Header
           setBirthdays={setBirthdays}
@@ -48,7 +48,7 @@ function App() {
           setSelectedMonth={setSelectedMonth}
         />
 
-        <div className='w-full md:min-w-96 md:max-w-lg max-w-80  mx-auto'>
+        <div className='w-full md:min-w-96 md:max-w-lg max-w-80  overflow-y-hidden mx-auto'>
           <Routes>
             <Route
               path='/'
