@@ -48,7 +48,7 @@ function App() {
           setSelectedMonth={setSelectedMonth}
         />
 
-        <div className='w-full md:min-w-96 md:max-w-lg max-w-80  overflow-y-hidden mx-auto'>
+        <div className='w-full md:min-w-96 md:max-w-lg max-w-80 mx-auto'>
           <Routes>
             <Route
               path='/'
