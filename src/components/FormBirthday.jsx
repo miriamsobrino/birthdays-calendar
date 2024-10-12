@@ -102,10 +102,7 @@ export function FormBirthday({ saveBirthday, closeDialog }) {
         Guardar cumpleaños
       </button>
 
-      <button
-        onClick={closeDialog}
-        className='absolute top-4 right-4  border-none'
-      >
+      <button onClick={closeDialog} className='absolute top-4 right-4 '>
         <CloseIcon />
       </button>
     </form>
