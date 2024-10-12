@@ -8,6 +8,7 @@ export function Header({ setBirthdays, birthdaysByMonth, setSelectedMonth }) {
   const savedBirthdays = JSON.parse(localStorage.getItem('birthdays')) || [];
 
   const navigate = useNavigate();
+
   useEffect(() => {
     setBirthdays(savedBirthdays);
   }, []);
@@ -17,7 +18,7 @@ export function Header({ setBirthdays, birthdaysByMonth, setSelectedMonth }) {
     navigate(`/${selectedMonth}`);
   };
   return (
-    <header className=' md:max-w-lg max-w-80 mx-auto  flex flex-col justify-center items-start h-auto mb-4'>
+    <header className=' md:max-w-lg max-w-80 mx-auto  flex flex-col justify-start w-full items-start h-auto mb-4'>
       <Link to='/' className='text-white font-bold text-2xl'>
         Cumpleaños
       </Link>

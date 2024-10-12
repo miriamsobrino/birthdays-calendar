@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { UpcomingBirthdays } from './components/UpcomingBirthdays';
 import { BirthdayMonth } from './components/BirthdayMonth';
 import { Header } from './components/Header';
@@ -10,6 +10,7 @@ import './App.css';
 
 function App() {
   const [selectedMonth, setSelectedMonth] = useState('');
+
   const {
     birthdays,
     isDialogOpen,
@@ -18,6 +19,13 @@ function App() {
     toggleDialog,
     deleteBirthday,
   } = useBirthday();
+
+  useEffect(() => {
+    const savedBirthdays = JSON.parse(localStorage.getItem('birthdays')) || [];
+
+    setBirthdays(savedBirthdays);
+  }, [setBirthdays]);
+
   const birthdaysByMonth = birthdays.reduce(
     (groupedBirthdays, currentBirthday) => {
       const monthLowerCase = currentBirthday.month.toLowerCase();
@@ -32,7 +40,7 @@ function App() {
 
   return (
     <Router>
-      <div className='w-full bg-neutral-950 min-h-screen overflow-y-hidden flex flex-col overflow-x-hidden justify-center items-center '>
+      <div className='w-full bg-neutral-950 h-screen overflow-y-hidden flex flex-col overflow-x-hidden justify-center items-center '>
         <Toaster position='top-center' />
         <Header
           setBirthdays={setBirthdays}
@@ -45,20 +53,24 @@ function App() {
             <Route
               path='/'
               element={
-                <UpcomingBirthdays
-                  birthdaysByMonth={birthdaysByMonth}
-                  onDelete={deleteBirthday}
-                />
+                birthdays.length > 0 && (
+                  <UpcomingBirthdays
+                    birthdaysByMonth={birthdaysByMonth}
+                    onDelete={deleteBirthday}
+                  />
+                )
               }
             />
             <Route
               path='/:month'
               element={
-                <BirthdayMonth
-                  birthdaysByMonth={birthdaysByMonth}
-                  month={selectedMonth}
-                  onDelete={deleteBirthday}
-                />
+                birthdays.length > 0 && (
+                  <BirthdayMonth
+                    birthdaysByMonth={birthdaysByMonth}
+                    month={selectedMonth}
+                    onDelete={deleteBirthday}
+                  />
+                )
               }
             />
           </Routes>

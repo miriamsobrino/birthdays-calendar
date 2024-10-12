@@ -19,28 +19,31 @@ export function UpcomingBirthdays({ birthdaysByMonth, onDelete }) {
 
   return (
     <div className='flex flex-col gap-2 '>
-      <p className='text-neutral-400 font-bold mb-2 uppercase '>Hoy</p>
-      {todaysBirthdays.map((birthday) => (
-        <BirthdayItem
-          key={birthday.id}
-          name={birthday.name}
-          month={birthday.month}
-          day={birthday.day}
-          year={birthday.year}
-          phone={birthday.phone}
-          id={birthday.id}
-          onDelete={onDelete}
-          todaysBirthday={true}
-        />
-      ))}
+      {todaysBirthdays.length > 0 && (
+        <>
+          <p className='text-neutral-400 font-bold mb-2 uppercase'>Hoy</p>
+          {todaysBirthdays.map((birthday) => (
+            <BirthdayItem
+              key={birthday.id}
+              name={birthday.name}
+              month={birthday.month}
+              day={birthday.day}
+              year={birthday.year}
+              phone={birthday.phone}
+              id={birthday.id}
+              onDelete={onDelete}
+              todaysBirthday={true}
+            />
+          ))}
+        </>
+      )}
 
       <h2 className='text-neutral-400 font-bold text-base uppercase mt-4'>
         Próximos
       </h2>
-      {upcomingBirthdays.length === 0 && todaysBirthdays.length === 0 && (
+      {upcomingBirthdays.length === 0 && (
         <p className='text-neutral-400'>No hay cumpleaños próximos</p>
       )}
-
       {upcomingBirthdays.map((birthday) => {
         return (
           <BirthdayItem
