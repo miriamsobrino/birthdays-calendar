@@ -1,5 +1,6 @@
 import { MONTHS } from '../constants/Constants';
 import { BirthdayItem } from './BirthdayItem';
+import { motion } from 'framer-motion';
 
 export function UpcomingBirthdays({ birthdaysByMonth, onDelete }) {
   const currentMonthIndex = new Date().getMonth();
@@ -21,8 +22,15 @@ export function UpcomingBirthdays({ birthdaysByMonth, onDelete }) {
     <div className='flex flex-col gap-2 '>
       {todaysBirthdays.length > 0 && (
         <>
-          <p className='text-neutral-400 font-bold mb-2 uppercase'>Hoy</p>
-          {todaysBirthdays.map((birthday) => (
+          <motion.h2
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.2 }}
+            className='text-neutral-400 font-bold mb-2 uppercase'
+          >
+            Hoy
+          </motion.h2>
+          {todaysBirthdays.map((birthday, index) => (
             <BirthdayItem
               key={birthday.id}
               name={birthday.name}
@@ -33,16 +41,29 @@ export function UpcomingBirthdays({ birthdaysByMonth, onDelete }) {
               id={birthday.id}
               onDelete={onDelete}
               todaysBirthday={true}
+              delay={index * 0.2}
             />
           ))}
         </>
       )}
 
-      <h2 className='text-neutral-400 font-bold text-base uppercase mt-4'>
+      <motion.h2
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.2 }}
+        className='text-neutral-400 font-bold text-base uppercase mt-4'
+      >
         Próximos
-      </h2>
+      </motion.h2>
       {upcomingBirthdays.length === 0 && (
-        <p className='text-neutral-400'>No hay cumpleaños próximos</p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.2 }}
+          className='text-neutral-400'
+        >
+          No hay cumpleaños próximos
+        </motion.p>
       )}
       {upcomingBirthdays.map((birthday) => {
         return (

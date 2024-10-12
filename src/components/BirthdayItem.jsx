@@ -1,6 +1,7 @@
 import { Avatar } from './Avatar';
 import { GiftIcon } from '../assets/icons/GiftIcon';
 import { CloseIcon } from '../assets/icons/CloseIcon';
+import { motion } from 'framer-motion';
 
 export function BirthdayItem({
   name,
@@ -11,6 +12,7 @@ export function BirthdayItem({
   phone,
   onDelete,
   todaysBirthday,
+  delay,
 }) {
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
@@ -26,7 +28,12 @@ export function BirthdayItem({
   };
 
   return (
-    <div className='flex gap-2 px-2 py-1 rounded-full items-center justify-between bg-neutral-800'>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.2, delay }}
+      className='flex gap-2 px-2 py-1 rounded-full items-center justify-between bg-neutral-800'
+    >
       <div className='flex justify-start gap-2'>
         <Avatar seed={name} size={40} />
         <div className='flex flex-col'>
@@ -50,6 +57,6 @@ export function BirthdayItem({
           <CloseIcon />
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 }
