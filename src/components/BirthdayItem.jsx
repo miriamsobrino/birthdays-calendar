@@ -29,23 +29,24 @@ export function BirthdayItem({
 
   return (
     <motion.div
+      layout
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.2, delay }}
       className='flex gap-2 px-2 py-1 rounded-full items-center justify-between bg-neutral-800'
     >
-      <div className='flex justify-start gap-2'>
+      <motion.div className='flex justify-start gap-2'>
         <Avatar seed={name} size={40} />
-        <div className='flex flex-col'>
+        <motion.div className='flex flex-col'>
           <span className='text-white font-bold text-base'>
             {capitalizeFirstLetter(name)}
           </span>
           <small className='text-neutral-400 font-bold text-sm'>
             {capitalizeFirstLetter(month)}, {day}
           </small>
-        </div>
-      </div>
-      <div className='flex gap-4'>
+        </motion.div>
+      </motion.div>
+      <motion.div className='flex gap-4'>
         <span className='text-white font-semibold'>{age} años</span>
         {todaysBirthday && (
           <button onClick={() => sendWhatsAppMessage(name, phone, age)}>
@@ -56,7 +57,7 @@ export function BirthdayItem({
         <button onClick={() => onDelete(id)}>
           <CloseIcon />
         </button>
-      </div>
+      </motion.div>
     </motion.div>
   );
 }

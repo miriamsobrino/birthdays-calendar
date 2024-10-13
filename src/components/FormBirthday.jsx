@@ -88,7 +88,7 @@ export function FormBirthday({ saveBirthday, closeDialog }) {
         <input
           required
           placeholder='Teléfono'
-          type='text'
+          type='tel'
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           className='bg-neutral-900 w-full text-white outline-none focus:bg-neutral-800 py-2 px-4  rounded-lg text-sm '

@@ -1,6 +1,7 @@
 import { BirthdayItem } from './BirthdayItem';
 import { BackIcon } from '../assets/icons/BackIcon';
 import { Link, useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 export function BirthdayMonth({ birthdaysByMonth, onDelete }) {
   const { month } = useParams();

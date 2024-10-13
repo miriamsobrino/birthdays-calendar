@@ -25,7 +25,7 @@ export const useBirthday = () => {
       localStorage.setItem('birthdays', JSON.stringify(updatedBirthdays));
       return updatedBirthdays;
     });
-    toast.success('Cumpleaños añadido correctamente!');
+    toast.success('Cumpleaños añadido!');
     setIsDialogOpen(false);
   };
 

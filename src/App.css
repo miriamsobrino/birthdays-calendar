@@ -8,6 +8,7 @@
 .scroll-container::-webkit-scrollbar {
   width: 6px;
   height: 6px;
+  display: block;
 }
 .scroll-container::-webkit-scrollbar-track {
   border-radius: 20px;

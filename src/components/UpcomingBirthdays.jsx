@@ -19,13 +19,13 @@ export function UpcomingBirthdays({ birthdaysByMonth, onDelete }) {
     ) || [];
 
   return (
-    <div className='flex flex-col gap-2 '>
+    <motion.div layout className='flex flex-col gap-2 '>
       {todaysBirthdays.length > 0 && (
         <>
           <motion.h2
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.4 }}
             className='text-neutral-400 font-bold mb-2 uppercase'
           >
             Hoy
@@ -65,7 +65,7 @@ export function UpcomingBirthdays({ birthdaysByMonth, onDelete }) {
           No hay cumpleaños próximos
         </motion.p>
       )}
-      {upcomingBirthdays.map((birthday) => {
+      {upcomingBirthdays.map((birthday, index) => {
         return (
           <BirthdayItem
             key={birthday.id}
@@ -77,9 +77,10 @@ export function UpcomingBirthdays({ birthdaysByMonth, onDelete }) {
             id={birthday.id}
             onDelete={onDelete}
             todaysBirthday={false}
+            delay={index * 0.2}
           />
         );
       })}
-    </div>
+    </motion.div>
   );
 }
